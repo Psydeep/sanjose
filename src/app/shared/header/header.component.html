@@ -1,3 +1,71 @@
-<p>
-  header works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark sj-green">
+    <a class="navbar-brand index-font text-center" routerLink="/home">
+        <img src="assets/img/san-jose-logo-menu.png">
+        <p>Unidad Educativa <br> San Jose</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/home"> <span class="icon ion-md-home"></span> Inicio</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/admision">Admisión</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/colegio">El Colegio</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/especialidades">Nuestras Especialidades</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/contacts">Contactos</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="isLogin">
+            <li class="nav-item">
+                <a class="btn btn-warning" routerLink="/noticia/nueva">
+                    <i class="icon ion-md-today"></i> Publicar</a>
+            </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+            <button class="btn btn-outline-white my-2 my-sm-0" type="submit">Buscar</button>
+        </form> -->
+        <ul class="navbar-nav mr-auto">
+            <span class="useparator" *ngIf="isLogin"></span>
+            <li class="nav-item" *ngIf="!isLogin">
+                <a class="btn btn-light" routerLink="/login"> <i class="icon ion-md-person"></i> Login</a>
+            </li>
+            <span class="navbar-text sj-text-orange" *ngIf="isLogin">
+                <i class="icon ion-md-contact"></i> {{userEmail}} <span class="useparator"></span>
+            </span>
+            <li class="nav-item" *ngIf="isLogin">
+                <button class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">Salir <i class="icon ion-md-exit"></i></button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cierre de sesión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                De seguro quiere cerrar la sesión?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onLogout()">Aceptar <i class="icon ion-md-exit"></i></button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,34 @@
-<p>
-  home works!
-</p>
+<div class="index-content  animated fadeIn">
+    <div class="row">
+        <div class="card-columns animated slideInUp">
+            <div class="col" *ngFor="let noticia of noticias | orderBy:['fecha','DESC'] | paginate: {itemsPerPage: 9, currentPage: p }">
+                <div class="card">
+                    <a routerLink="/noticia/detalle/{{noticia.id}}">
+                        <div *ngIf="loading" class="lds-ripple text-center"></div>
+                        <img class="card-img-top" [src]="noticia.img_portada" [alt]="noticia.titulo">
+                    </a>
+                    <div class="card-body">
+                        <a routerLink="/noticia/detalle/{{noticia.id}}" class="card-title sj-link-orange card-link">{{ noticia.titulo }}
+                        </a>
+                        <p class="card-text show-text">{{ noticia.descripcion }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small>{{noticia.fecha | date: 'MMMM d, y'}}</small>
+                        <button routerLink="/noticia/detalle/{{noticia.id}}" class="btn btn-secondary float-right btn-sm">
+                            Leer más</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="loading" class="lds-ripple text-center">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2">
+        <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+    </div>
+    <div class="text-center" *ngIf="noticias.length > 9">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

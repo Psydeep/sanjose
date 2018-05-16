@@ -1,3 +1,26 @@
-<p>
-  contacts works!
-</p>
+<div class="index-content">
+    <div *ngFor="let c of contactsList">
+        <div class="row">
+            <div class="col-md-9 animated fadeIn fast">
+                <h2>Unidad Educativa San Jose</h2>
+            </div>
+        </div>
+        <hr class="title-divider">
+        <div *ngIf="isLogin" class="text-right">
+            <button (click)="onEdit(c)" class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#editmodal">Editar contactos</button>
+        </div>
+        <div class="animated fadeIn fast">
+            <p><i class="icon ion-location sj-text-orange"></i><span class="sj-text-green"> Dirección: </span> {{c.direccion}}</p>
+            <p><i class="icon ion-email sj-text-orange"></i><span class="sj-text-green"> Email: </span> {{c.email}}</p>
+            <p><i class="icon ion-iphone sj-text-orange"></i><span class="sj-text-green"> Teléfonos: </span>{{c.telefonos}}</p>
+        </div>
+    </div>
+    <div class="p-2">
+        <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+    </div>
+    <div *ngIf="loading" class="lds-ripple text-center">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<app-update-contacts></app-update-contacts>

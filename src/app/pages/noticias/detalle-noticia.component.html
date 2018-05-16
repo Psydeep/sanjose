@@ -1,0 +1,47 @@
+<div class="index-content">
+    <div class="row">
+        <div class="col-md-9 animated fadeIn fast">
+            <h1 class="font-italic">{{noticia.titulo}}</h1>
+        </div>
+        <div class="col-md-3 text-right" *ngIf="isLogin">
+            <button routerLink="/noticia/editar/{{noticia.id}}" class="btn btn-primary btn-sm">Editar</button>
+            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exdeletenoticia">Eliminar?</button>
+        </div>
+    </div>
+    <hr class="title-divider">
+    <div class="container animated fadeIn">
+        <p class="sj-text-orange"><i class="icon ion-clock"></i> Publicado el: {{noticia.fecha | date: 'MMMM dd, yyyy'}}</p>
+        <hr class="divider">
+        <img src="{{noticia.img_portada}}" class="img-fluid" alt="">
+        <hr class="divider">
+        <p class="p-2 bg-light sj-b-gray">
+            {{noticia.descripcion}}
+        </p>
+    </div>
+    <div class="p-2">
+        <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+    </div>
+    <div *ngIf="loading" class="lds-ripple text-center">
+        <div></div>
+        <div></div>
+    </div>
+    <div class="modal fade" id="exdeletenoticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar: {{noticia.titulo}}?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    De seguro quiere eliminar esta noticia?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onClickDelete()">Si</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No, cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

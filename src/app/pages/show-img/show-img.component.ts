@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-noticias',
-  templateUrl: './noticias.component.html',
+  selector: 'app-show-img',
+  templateUrl: './show-img.component.html',
   styles: []
 })
-export class NoticiasComponent implements OnInit {
+export class ShowImgComponent implements OnInit {
 
   constructor() { }
 

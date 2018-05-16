@@ -1,9 +1,19 @@
-<h1>aqui va el header</h1>
-<app-header></app-header>
-<h1>aqui va el sidebar</h1>
-<app-sidebar></app-sidebar>
-<h1>aqui va el breadcrump</h1>
-<app-breadcrump></app-breadcrump>
-<h1>aqui va el body</h1>
+<header class="header">
+    <app-header></app-header>
+</header>
+<!-- <div class="separator"></div> -->
+<!-- <app-sidebar></app-sidebar> -->
 
-<router-outlet></router-outlet>
+<section *ngIf="router.url == '/home'">
+    <app-jumbotron></app-jumbotron>
+</section>
+<flash-messages></flash-messages>
+<br class="b-bottom" *ngIf="router.url != '/home'">
+<section>
+    <div class="container">
+        <app-breadcrump></app-breadcrump>
+        <router-outlet></router-outlet>
+    </div>
+</section>
+<hr class="b-bottom">
+<app-footerpage></app-footerpage>

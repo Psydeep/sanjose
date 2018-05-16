@@ -1,3 +1,21 @@
-<p>
-  jumbotron works!
-</p>
+<div style="z-index: -10;">
+    <carousel>
+        <slide *ngFor="let item of items | async |  orderBy:['fecha','DESC']  |slice:0:5; ">
+            <div class="carousel-itemx active" [style.background-image]="'url(' + item.url + ')'">
+                <!-- <p class="sj-text-orange" style="position: absolute; bottom: 30px; right: 50px">{{item.fecha | date: 'MMMM d, y'}}</p> -->
+            </div>
+
+        </slide>
+
+        <!-- <div class="col-md-11 mx-auto" style="position: absolute; z-index:3">
+            <div class="text-right"> -->
+
+        <div class="b-gallery">
+            <button class="btn btn-warning btn-sm" [routerLink]="['/galeria']">
+                    <i class="icon ion-md-photos"></i>
+                    Subir
+                </button>
+        </div>
+    </carousel>
+    <br>
+</div>

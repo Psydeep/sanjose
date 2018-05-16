@@ -1,8 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AlertModule } from 'ngx-bootstrap';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [AlertModule.forRoot()],
       declarations: [
         AppComponent
       ],

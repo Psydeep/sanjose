@@ -1,0 +1,44 @@
+<div *ngIf="isLogin" class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editmodalLabel">Editar información de contacto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form #contactsForm="ngForm" (ngSubmit)="onSend(contactsForm)">
+                <div class="modal-body">
+                    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="cS.selectedContacts.$key">
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Correo:</mat-label>
+                            <input matInput class="p-2 sj-b-gray form-control-border" type="email" name="email" #email="ngModel" [(ngModel)]="cS.selectedContacts.email" required>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Dirección:</mat-label>
+                            <input matInput class="p-2 sj-b-gray form-control-border" type="text" name="direccion" #direccion="ngModel" [(ngModel)]="cS.selectedContacts.direccion" required>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Telefono:</mat-label>
+                            <textarea matInput class="p-2 sj-b-gray form-control-border" rows="4" type="textarea" name="telefonos" #telefonos="ngModel" [(ngModel)]="cS.selectedContacts.telefonos" required>
+                            </textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button mat-button type="reset" class="btn btn-dark" (click)="resetForm(contactsForm)">Limpiar formulario</button>
+                    <button mat-button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar/Cerrar</button>
+                    <button mat-button [disabled]="!contactsForm.valid" [ngClass]="{'btn-outline-dark': !contactsForm.valid, 'btn-success': contactsForm.valid}" type="submit" class="btn">Guardar</button>
+                </div>
+                <div class="p-2">
+                    <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

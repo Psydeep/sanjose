@@ -1,3 +1,47 @@
-<p>
-  login works!
-</p>
+<div class="loginBack animated ">
+    <div class="container-fluid loginContainer">
+        <div class="row">
+            <div class="col-md-4 mx-auto mt-4">
+                <div class="">
+                    <div class="body">
+                        <div class="text-center">
+                            <img class="card-img-top" src="assets/img/san-jose-logo.png" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 mx-auto mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <button routerLink="/home" class="btn btn-secondary sj-text-orange"> <span class="icon ion-reply-all"></span> Regresar</button>
+                        <flash-messages></flash-messages>
+
+                        <h1 class="text-center animated fadeInDown">Iniciar Sesión</h1>
+                        <form class="col-md-8 mx-auto" (submit)="onLogin()" #formlogin="ngForm">
+                            <div class="form-group  animated slideInUp">
+                                <mat-form-field class="full-width" appearance="outline">
+                                    <mat-label>Email:</mat-label>
+                                    <input matInput type="email" placeholder="Correo electrónico.." [(ngModel)]="email" name="email" required>
+                                    <mat-error *ngIf="emailform.invalid">{{getErrorMessage()}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group animated slideInUp">
+                                <mat-form-field class="full-width" appearance="outline">
+                                    <mat-label>Contraseña:</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Contraseña" [(ngModel)]="password" name="password" required>
+                                    <i matSuffix class="icon ion-eye" (click)="hide = !hide">{{hide ? 'visible' : 'no visible'}}</i>
+                                    <mat-error *ngIf="passform.invalid">{{getErrorMessage2()}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <button [disabled]="!formlogin.valid" [ngClass]="{'btn-outline-dark': !formlogin.valid, 'btn-success': formlogin.valid}" type="submit" class="btn">Iniciar</button>
+                            <!-- <button type="submit" class="btn bton-outline-primary">Iniciar</button> -->
+                        </form>
+                    </div>
+                    <div class="p-2">
+                        <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

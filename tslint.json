@@ -19,7 +19,7 @@
     "import-blacklist": [
       true,
       "rxjs",
-      "rxjs/Rx"
+      // "rxjs/Rx"
     ],
     "import-spacing": true,
     "indent": [
@@ -61,7 +61,7 @@
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
-      true,
+      false,
       "ignore-params"
     ],
     "no-misused-new": true,

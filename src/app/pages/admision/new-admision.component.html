@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div *ngIf="isLogin" class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editmodalLabel">Editar información de matrículas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form #admisionForm="ngForm" (ngSubmit)="onSend(admisionForm)">
+                <div class="modal-body">
+                    <!-- para actualizar -->
+                    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="admisionService.selectedAdmision.$key">
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Valor Matricula Basica:</mat-label>
+                            <input matInput type="number" class="sj-b-gray text-right form-control-border" name="valor_basico" #valor_basico="ngModel" [(ngModel)]="admisionService.selectedAdmision.valor_basico" placeholder="Agrega un valor" required>
+                            <span matPrefix>$&nbsp;</span>
+                            <span matSuffix>.00</span>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="full-width">
+                            <mat-label>Valor Matricula Bachiller:</mat-label>
+                            <input matInput type="number" class="sj-b-gray text-right form-control-border" name="valor_bachiller" #valor_bachiller="ngModel" [(ngModel)]="admisionService.selectedAdmision.valor_bachiller" placeholder="Agrega un valor" required>
+                            <span matPrefix>$&nbsp;</span>
+                            <span matSuffix>.00</span>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                            <mat-label>Requisitos para matricularse:</mat-label>
+                            <textarea matInput name="requisitos" #requisitos="ngModel" [(ngModel)]="admisionService.selectedAdmision.requisitos" class="p-2 sj-b-gray form-control-border" cols="30" rows="10" required></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button mat-button type="reset" class="btn btn-dark" (click)="resetForm(admisionForm)">Limpiar formulario</button>
+                    <button mat-button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar/Cerrar</button>
+                    <button mat-button [disabled]="!admisionForm.valid" [ngClass]="{'btn-outline-dark': !admisionForm.valid, 'btn-success': admisionForm.valid}" type="submit" class="btn">Guardar</button>
+                </div>
+                <div class="p-2">
+                    <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

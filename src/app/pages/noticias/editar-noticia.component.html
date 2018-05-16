@@ -1,0 +1,43 @@
+<div class="index-content">
+    <div class="row">
+        <form #formUpdateNoticia="ngForm" (ngSubmit)="onUpdateNoticia(formUpdateNoticia)" class="col-md-12 mr-auto" encType="multipart/form-data">
+            <div class="form-group">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Título:</mat-label>
+                    <input matInput [(ngModel)]="noticia.titulo" class="p-2 sj-b-gray form-control-border" name="titulo" type="text" placeholder="Título:" required>
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Descripción:</mat-label>
+                    <textarea matInput [(ngModel)]="noticia.descripcion" type="textarea" class="p-2 sj-b-gray form-control-border" placeholder="Descripción:" rows="12" cols="10" name="descripcion" (input)="noticia.descripcion = $event.target.value"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label>Imagen de portada</label>
+
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input (change)="showPreviewImage($event)" accept="image/*" type="file" class="custom-file-input" id="image">
+                            <label class="custom-file-label" for="image">Elige una imagen</label>
+                        </div>
+                    </div>
+                    <div class="mx-auto text-center">
+                        <pre class="text-primary">Vista previa de la imagen</pre>
+                        <img [src]="localUrl" width="75%" *ngIf="localUrl" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-md-6 mx-auto">
+                    <pre class="text-primary">Imagen actual</pre>
+                    <hr>
+                    <img [src]="noticia.img_portada" class="img-fluid rounded align-middle">
+                </div>
+            </div>
+            <button [disabled]="!formUpdateNoticia.valid" [ngClass]="{'btn-outline-dark': !formUpdateNoticia.valid, 'btn-success': formUpdateNoticia.valid}" type="submit" class="btn">Guardar</button>
+            <div class="p-2">
+                <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+            </div>
+        </form>
+    </div>
+</div>

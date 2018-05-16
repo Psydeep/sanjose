@@ -1,3 +1,32 @@
-<p>
-  admision works!
-</p>
+<div class="index-content">
+    <div class="col" *ngFor="let admision of admisionList">
+        <div class="row">
+            <div class="col-md-12">
+                <div *ngIf="isLogin">
+                    <button (click)="onEdit(admision)" class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#editmodal">Editar información</button>
+                </div>
+                <h2>Valores de matrícula</h2>
+                <hr class="title-divider">
+                <h5>Valor Básico:</h5>
+                <h6>$ {{admision.valor_basico}}</h6>
+                <h5>Valor Bachiller:</h5>
+                <h6>$ {{admision.valor_bachiller}}</h6>
+                <h3>Requisitos para matricular de octavo a tercer de bachillerato</h3>
+                <hr class="title-divider">
+                <p class="like-pre">{{admision.requisitos}}</p>
+
+                <div class="form-group">
+                    <!-- <button (click)="onDelete(admision.$key)" class="btn btn-danger" type="button">Eliminar</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2">
+        <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
+    </div>
+    <div *ngIf="loading" class="lds-ripple text-center">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<app-new-admision></app-new-admision>
