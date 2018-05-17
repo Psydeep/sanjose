@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../../services/service.index';
 import { Gallery } from '../../models/gallery';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-gallery',
@@ -12,7 +13,8 @@ export class GalleryComponent implements OnInit {
   itsOnElement = false;
   files: Gallery[] = [];
 
-  constructor(private _galleryService: GalleryService) { }
+  constructor(private _galleryService: GalleryService,
+    private toastr: ToastrService,) { }
 
   ngOnInit() {
   }

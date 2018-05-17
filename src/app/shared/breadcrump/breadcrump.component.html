@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb" *ngIf="page != 'Noticias'">
+    <ol class="breadcrumb animated fadeIn fast" *ngIf="page != 'Noticias'">
         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
         <li class="breadcrumb-item" *ngIf="page == 'Editar Noticia' || page == 'Detalle Noticia'"><a routerLink="/">Noticia</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{page}}</li>
@@ -8,7 +8,7 @@
         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
     </ol>
 </nav>
-<div class="tittle-page animated fadeIn fast">
-    <h1 class="font-italic">{{page}}</h1>
+<div class="tittle-page animated fadeIn">
+    <h1 class="font-italic animated fadeIn">{{page}}</h1>
 </div>
 <hr>

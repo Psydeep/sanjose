@@ -2,9 +2,8 @@
     <div *ngIf="isLogin">
         <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#editmodal">Agregar nueva especialidad</button>
     </div>
-    <br>
-    <div class="col" *ngFor="let e of especialidadesList | orderBy:['titulo','ASC']">
-        <div class="row">
+    <div class="col animated fadeIn fast" *ngFor="let e of especialidadesList | orderBy:['titulo','ASC']">
+        <div class="row animated fadeIn">
             <div class="col-md-9">
                 <h2><strong>Titulo: </strong> {{e.titulo}}</h2>
                 <hr class="title-divider">

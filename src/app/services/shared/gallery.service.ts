@@ -3,13 +3,15 @@ import { Gallery } from '../../models/gallery';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore } from 'angularfire2/firestore';
 import * as firebase from 'firebase';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class GalleryService {
 
     private Image_Folder = 'gallery';
 
-    constructor(private db: AngularFireDatabase) {}
+    constructor(private db: AngularFireDatabase,
+        private toastr: ToastrService,) {}
     
     pushGallery(gallery: Gallery[]) {
         const storageRef = firebase.storage().ref();
@@ -37,6 +39,7 @@ export class GalleryService {
                     url: item.url,
                     fecha: item.createdAt
                 });
+                this.toastr.success('Archivo/s subidos exitosamente','Galeria de imagenes (portada)');
             });
         }
     }

@@ -23,17 +23,17 @@ const pagesRoutes: Routes = [
         path: '',
         component: PagesComponent,
         children: [
-            { path: 'home', component: HomeComponent, data: {titulo: 'Noticias'} },
-            { path: 'noticias', component: NoticiasComponent, data: {titulo: 'Noticias'}  },
-            { path: 'noticia/:id', component: NuevaNoticiaComponent, canActivate: [AuthGuard], data: {titulo: 'Noticia'}  },
-            { path: 'noticia/editar/:id', component: EditarNoticiaComponent, canActivate: [AuthGuard], data: {titulo: 'Editar Noticia'}  },
-            { path: 'noticia/detalle/:id', component: DetalleNoticiaComponent, data: {titulo: 'Detalle Noticia'}  },
-            { path: 'colegio', component: ColegioComponent, data: {titulo: 'El Colegio'}  },
-            { path: 'contacts', component: ContactsComponent , data: {titulo: 'Contactos'} },
-            { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: {titulo: 'Dashboard'}  },
-            { path: 'admision', component: AdmisionComponent , data: {titulo: 'Admisión'} },
-            { path: 'especialidades', component: EspecialidadesComponent , data: {titulo: 'Nuestras Especialidades'} },
-            { path: 'galeria', component: GalleryComponent, canActivate: [AuthGuard] , data: {titulo: 'Galería'} },
+            { path: 'home', component: HomeComponent, data: {titulo: 'U.E San José: Inicio'} },
+            { path: 'noticias', component: NoticiasComponent, data: {titulo: 'U.E San José: Noticias'}  },
+            { path: 'noticia/:id', component: NuevaNoticiaComponent, canActivate: [AuthGuard], data: {titulo: 'U.E San José: Noticia'}  },
+            { path: 'noticia/editar/:id', component: EditarNoticiaComponent, canActivate: [AuthGuard], data: {titulo: 'U.E San José: Editar Noticia'}  },
+            { path: 'noticia/detalle/:id', component: DetalleNoticiaComponent, data: {titulo: 'U.E San José: Detalle Noticia'}  },
+            { path: 'colegio', component: ColegioComponent, data: {titulo: 'U.E San José: El Colegio'}  },
+            { path: 'contacts', component: ContactsComponent , data: {titulo: 'U.E San José: Contactos'} },
+            { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: {titulo: 'U.E San José: Dashboard'}  },
+            { path: 'admision', component: AdmisionComponent , data: {titulo: 'U.E San José: Admisión'} },
+            { path: 'especialidades', component: EspecialidadesComponent , data: {titulo: 'U.E San José: Nuestras Especialidades'} },
+            { path: 'galeria', component: GalleryComponent, canActivate: [AuthGuard] , data: {titulo: 'U.E San José: Galería'} },
             { path: '', redirectTo: '/home', pathMatch: 'full' }
         ]
     }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdmisionService, AuthService } from '../../services/service.index';
 import { Admision } from '../../models/admision';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-admision',
@@ -15,7 +14,6 @@ export class NewAdmisionComponent implements OnInit {
 
   constructor(
     public admisionService: AdmisionService,
-    private toastr: ToastrService,
     private authService: AuthService
   ) { }
 
@@ -40,7 +38,6 @@ export class NewAdmisionComponent implements OnInit {
     //   this.admisionService.insertAdmision(admisionForm.value);
     // else
     this.admisionService.updateAdmision(admisionForm.value);
-    this.toastr.success('Actualización realizada','Datos de admisión');
     
     // this.resetForm(admisionForm);
   }

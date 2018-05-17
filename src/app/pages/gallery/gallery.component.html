@@ -1,6 +1,6 @@
 <div class="index-content">
     <div class="row">
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center animated fadeIn">
             <h3>Seleccione archivos</h3>
 
             <div dropZone [files]="files" (hovered)="itsOnElement = $event" [ngClass]="{'file-over': itsOnElement}" class="well drop-zone">
@@ -8,7 +8,7 @@
                 <img width="100%" class="image image-fluid" src="assets/img/drop-images.png" alt="">
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 animated fadeIn fast">
             <h3>Cargar Imagenes</h3>
             <button (click)="uploadImages()" [disabled]="files.length === 0" class="btn btn-success">
                 Subir
@@ -33,12 +33,15 @@
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" [ngStyle]="{'width': file.progress + '%'}"></div>
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{'width': file.progress + '%'}" [ngClass]="{'bg-success': file.progress == 100}"></div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="p-2">
+        <h6 class="text-right font-italic sj-text-green">Escelencia Académica</h6>
     </div>
 </div>
